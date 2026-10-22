@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24151b">
+  <title>For Vanshika ♡</title>
+  <style>
+    :root {
+      --wine: #4a1f2d;
+      --wine-deep: #24151b;
+      --rose: #d98b9b;
+      --cream: #fff7ee;
+      --paper: #f7e9da;
+      --ink: #432d32;
+      --muted: #886d72;
+      --gold: #d8b889;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    button { font: inherit; }
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 48px 22px;
+      text-align: center;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 15%, rgba(217,139,155,.22), transparent 50%),
+        linear-gradient(145deg, #512737, var(--wine-deep) 75%);
+    }
+    .hero::before, .hero::after {
+      content: "♡";
+      position: absolute;
+      color: rgba(255, 231, 224, .09);
+      font-size: clamp(150px, 35vw, 360px);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .hero::before { top: -30px; left: -45px; transform: rotate(-18deg); }
+    .hero::after { bottom: -70px; right: -40px; transform: rotate(16deg); }
+    .hero-inner { max-width: 760px; position: relative; z-index: 1; animation: rise 1.2s ease both; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      font: 11px/1.5 Arial, sans-serif;
+      color: #e8c8c7;
+      margin-bottom: 22px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-weight: normal;
+      font-size: clamp(48px, 11vw, 100px);
+      line-height: .98;
+      margin-bottom: 24px;
+      letter-spacing: -.045em;
+    }
+    .hero p { max-width: 570px; margin: 0 auto 32px; font-size: clamp(17px, 3vw, 21px); color: #f5e5e2; }
+    .hero .small-note { font: 12px/1.6 Arial, sans-serif; color: #c9aeb2; letter-spacing: .04em; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 999px;
+      padding: 13px 24px;
+      color: var(--cream);
+      text-decoration: none;
+      background: rgba(255,255,255,.06);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: rgba(255,255,255,.13); }
+    .button.primary { background: var(--wine); border-color: var(--wine); color: white; }
+    .button.primary:hover { background: #6a2c40; }
+    .section { padding: 82px 22px; }
+    .container { width: min(100%, 850px); margin: 0 auto; }
+    .section-label {
+      color: #a05c6e; text-transform: uppercase; letter-spacing: .2em;
+      font: 11px/1.6 Arial, sans-serif; margin-bottom: 15px;
+    }
+    h2 { font-size: clamp(32px, 6vw, 52px); line-height: 1.12; font-weight: normal; letter-spacing: -.025em; margin-bottom: 22px; }
+    .intro { font-size: 18px; color: #71585d; max-width: 690px; }
+    .center { text-align: center; }
+    .memory { background: #f1dfd1; }
+    .photo-wrap { max-width: 430px; margin: 38px auto 26px; padding: 13px 13px 22px; background: #fffaf4; box-shadow: 0 18px 45px rgba(74,31,45,.15); transform: rotate(-1.5deg); }
+    .photo-wrap img { display: block; width: 100%; min-height: 260px; max-height: 520px; object-fit: cover; background: #e9d5cc; }
+    .photo-caption { font-style: italic; text-align: center; padding: 16px 8px 0; color: #77515a; font-size: 16px; }
+    .photo-note { max-width: 430px; margin: 0 auto; font: 11px/1.6 Arial, sans-serif; color: #8a6c70; }
+    .poem-section { background: #fff9f1; }
+    .poem-paper {
+      background:
+        linear-gradient(rgba(255,255,255,.45), rgba(255,255,255,.45)),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 34px, rgba(176,127,127,.13) 35px);
+      border: 1px solid #ead5c7;
+      padding: clamp(22px, 5vw, 48px);
+      box-shadow: 0 14px 38px rgba(73,42,45,.07);
+      position: relative;
+    }
+    .poem-paper::before { content: "A page from 2020"; display: block; text-align: right; color: #a47b7d; font: italic 13px Arial, sans-serif; margin-bottom: 22px; }
+    .poem { white-space: pre-line; font-size: clamp(15px, 2.4vw, 18px); line-height: 1.9; color: #51353b; }
+    .poem-break { height: 16px; }
+    .quote {
+      margin: 34px auto 0;
+      max-width: 660px;
+      text-align: center;
+      color: #8b4e60;
+      font-size: clamp(19px, 3vw, 24px);
+      font-style: italic;
+    }
+    .reunion { background: #f7eee6; }
+    .timeline { border-left: 1px solid #d6a6a9; margin: 36px 0 0 8px; padding-left: 27px; }
+    .timeline-item { position: relative; margin-bottom: 30px; }
+    .timeline-item::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #b86f80; position: absolute; left: -33px; top: 8px; box-shadow: 0 0 0 5px #f7eee6; }
+    .timeline-year { font: 11px Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #a05c6e; margin-bottom: 5px; }
+    .timeline-item p { margin-bottom: 0; color: #71585d; }
+    .letter-section { color: #f9eae4; background: radial-gradient(ellipse at 80% 10%, #613143, transparent 45%), var(--wine-deep); }
+    .letter-section .section-label { color: #e2a9b5; }
+    .letter-section h2 { color: #fff1e9; }
+    .letter { max-width: 720px; font-size: clamp(17px, 2.5vw, 20px); color: #f1dfe0; }
+    .letter p { margin-bottom: 21px; }
+    .signature { color: #e4b6bc; font-style: italic; margin-top: 30px; }
+    .proposal { text-align: center; background: #f0dfd5; }
+    .proposal h2 { max-width: 760px; margin-left: auto; margin-right: auto; }
+    .proposal-question { font-size: clamp(25px, 5vw, 42px); color: #6b2c40; margin: 28px auto 16px; line-height: 1.2; }
+    .proposal-sub { color: #7f6268; max-width: 540px; margin: 0 auto 30px; }
+    .choices { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .choices .button { min-width: 190px; border-color: #a86a7b; color: #6b2c40; background: transparent; }
+    .choices .button.primary { color: white; background: #6b2c40; }
+    .response { display: none; max-width: 600px; margin: 34px auto 0; padding: 28px 24px; border: 1px solid #d7a9aa; background: rgba(255,250,244,.7); animation: rise .5s ease both; }
+    .response h3 { color: #6b2c40; font-size: 29px; font-weight: normal; margin-bottom: 12px; }
+    .footer { padding: 30px 20px; text-align: center; background: #24151b; color: #c9aeb2; font-size: 13px; }
+    .footer span { color: #df9baa; }
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .petal { position: fixed; top: -20px; z-index: 5; pointer-events: none; animation: fall linear forwards; color: #d98b9b; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fall { to { transform: translate3d(var(--drift), 110vh, 0) rotate(480deg); opacity: 0; } }
+    @media (max-width: 520px) {
+      .section { padding: 62px 19px; }
+      .hero { padding: 35px 20px; }
+      .photo-wrap img { min-height: 230px; }
+      .choices { flex-direction: column; align-items: stretch; }
+      .choices .button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .fade-in { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="eyebrow">A little letter from Rishabh</div>
+      <h1>For Vanshika <span style="color:#e5a3b1">♡</span></h1>
+      <p>Some stories begin before we even understand what love means. And some, somehow, find their way back to us.</p>
+      <a class="button" href="#beginning">Open my little letter <span aria-hidden="true">↓</span></a>
+      <p class="small-note" style="margin-top:24px;margin-bottom:0">A story that began in childhood, written from the heart.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="beginning">
+      <div class="container fade-in">
+        <div class="section-label">Chapter one · The beginning</div>
+        <h2>Once upon a time, in a little school...</h2>
+        <p class="intro">Before we knew what love was supposed to mean, before life became complicated, there was a little chapter of my life that had you in it.</p>
+        <p>We were in 2nd grade when I first started feeling something I couldn't really explain. Back then, everything was simpler — school, familiar faces, little moments, and feelings too innocent to have names.</p>
+        <p>We studied together until 4th grade. Then you left the school, and life quietly took us in different directions. We never really got the chance to talk the way people do when they know someone might someday become important to them.</p>
+        <p>And yet, somehow, you remained a memory.</p>
+      </div>
+    </section>
+
+    <section class="section memory">
+      <div class="container center fade-in">
+        <div class="section-label">A memory we can imagine</div>
+        <h2>The photograph we never had</h2>
+        <p class="intro" style="margin-left:auto;margin-right:auto">A little picture of what childhood might have looked like if someone had captured us together.</p>
+        <div class="photo-wrap">
+          <img id="childhoodPhoto" src="https://drive.google.com/uc?export=view&id=1AX1jfS06ocuRX5x7bsEG-mkuiV1c4wlG" alt="AI-created imagined childhood photograph of Rishabh and Vanshika">
+          <div class="photo-caption">“We were too little to know what the future held.”</div>
+        </div>
+        <p class="photo-note">An AI-created imagined childhood photograph — not an authentic historical photo. If it doesn't load, download the image from Google Drive and place it beside this file as <strong>childhood-memory.jpg</strong>.</p>
+        <p class="quote">“If someone had told that little boy he would get the chance to talk to you again, years later, I don't think he would have believed it.”</p>
+      </div>
+    </section>
+
+    <section class="section poem-section">
+      <div class="container fade-in">
+        <div class="section-label">Chapter two · The words from 2020</div>
+        <h2>Six years before we found our way back...</h2>
+        <p class="intro">In 2020, I wrote something I never knew I would share with you. I wrote these words without knowing when — or whether — you would ever read them.</p>
+        <div class="poem-paper">
+          <div class="poem">Aodo dekh k aohnu lagda jeeve baaga ch nachde mor cee;
+Manu aaj tak nhi aa pta lagaya ki oh ishq ce ja kuj hor ce;
+Nayaaani cegi mat aodo koi samaj nhi ce tanga diii;
+Aohnu dekh khirahat wad jaandi ce wikhde saare rang a diii;
+Aohnda chehra ce ji masoom jya mai aohnde ute marda ce;
+Chaunda ta ce baala aosnu kehen to par mai darda ce;
+Class ik ce dohan dii bada aokha man samjaunda ce;
+Baar baar mai kisi bahaane aohde kol mai jaanda ce;
+Aaho jya mahool ce oh jive ful te titli khildi ce;
+Aohnu dooro dekhde rehen naal he bohot khushi manu mildii ce;
+
+Dil baala dukhda ce mera jad naal aohde koi behenda ce;
+Bs mai he kuj nhi keh paanda ce har koi gl aohnu kehenda ce;
+Jive pari tarti te utri hoove aada dee o jaapdi ce;
+Jo ve kehna kehnde manu har din oh manu aakhdi ce;
+Chup jya kar jaanda ce mai ta aohnu age dekh k ji;
+Manu aohnu dekhda reh jaanda aodo baaki manu dekhde ce;
+Dekhe dekhde time jya langya ghari ta chaldi chali gyii;
+Pehla ta oh schoolo gye fir sheher vicho v chali gyii;
+Aaj chate kar kar rona aa na time da feda le sakaya;
+Oh pushdi pushdi chali gyi mai dil di gal na keh sakaya;</div>
+        </div>
+        <p class="quote">“I wrote this in 2020. I never imagined that in 2026, I would be sending these very words to the person they were written for.”</p>
+      </div>
+    </section>
+
+    <section class="section reunion">
+      <div class="container fade-in">
+        <div class="section-label">Chapter three · Finding our way back</div>
+        <h2>And then, life surprised me.</h2>
+        <p class="intro">Six more years passed. And somehow, after all that time, we got in touch again.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2nd grade</div>
+            <p>A little boy began feeling something he didn't know how to explain.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">After 4th grade</div>
+            <p>Our paths went in different directions, and childhood kept moving forward.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <p>I put those feelings into a poem, never knowing if you'd ever read it.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2026</div>
+            <p>We started talking again. I finally told you what had been sitting in my heart for so long, and shared the words I had written.</p>
+          </div>
+        </div>
+        <p style="margin-top:30px">For the first time, those words were no longer just a memory. They had finally reached you. I don't know what life has planned for us, but getting the chance to know you again means something special to me.</p>
+      </div>
+    </section>
+
+    <section class="section letter-section">
+      <div class="container fade-in">
+        <div class="section-label">A little honesty</div>
+        <h2>What I want you to know</h2>
+        <div class="letter">
+          <p>Vanshika,</p>
+          <p>I don't want to make this about how many years have passed, or how long I've carried these feelings.</p>
+          <p>I just want you to know that the little boy who once stayed quiet because he didn't know how to say what was in his heart has grown up.</p>
+          <p>And today, he doesn't want to hide behind silence anymore.</p>
+          <p>I'm not asking you to promise me a lifetime. I'm not asking you to feel something just because I felt it first, or because I wrote a poem years ago.</p>
+          <p>I simply want the chance to know you more deeply, to make you smile, to be there for you, to share ordinary little moments, and to discover what we could become together.</p>
+          <p>I don't know whether our story was always meant to return to this page. But now that we're here, I would really love to see where the next chapter could take us.</p>
+          <p>And if you feel even a little of what I feel, I would love to take that step with you.</p>
+          <p class="signature">With all the words I couldn't say back then,<br>Rishabh ♡</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section proposal" id="question">
+      <div class="container fade-in">
+        <div class="section-label">One question · A new beginning</div>
+        <h2>Vanshika...</h2>
+        <p class="intro" style="margin-left:auto;margin-right:auto">We may have missed our chance to speak back then. But maybe we have a chance to write something beautiful now.</p>
+        <div class="proposal-question">Will you let me be more than just a childhood memory?</div>
+        <p class="proposal-sub">Will you give us a chance to see what this could become? ♡</p>
+        <div class="choices">
+          <button class="button primary" id="yesBtn">Yes, let's see where this goes ♡</button>
+          <button class="button" id="timeBtn">I need a little time</button>
+        </div>
+        <div class="response" id="yesResponse" role="status" aria-live="polite">
+          <h3>Here's to a new chapter ♡</h3>
+          <p>Then here's to a new chapter, Vanshika. No promises about a perfect story — just two people, an honest beginning, and a chance to make some beautiful memories together.</p>
+          <p><em>With a smile I probably can't hide,</em><br><strong>Rishabh</strong></p>
+          <a class="button primary" href="#top">Read our story again ↑</a>
+        </div>
+        <div class="response" id="timeResponse" role="status" aria-live="polite">
+          <h3>That's completely okay, Vanshika. ♡</h3>
+          <p>You don't have to rush an answer or feel any pressure. I'm glad I could finally tell you what was in my heart.</p>
+          <p>Whatever you feel, I respect it. Take all the time you need.</p>
+          <a class="button primary" href="#top">Back to the letter ↑</a>
+        </div>
+        <p style="font:11px Arial,sans-serif;color:#98777b;margin:26px 0 0">Your choice stays on this page. It won't be sent or saved anywhere.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Some memories stay. Some stories return. And some chapters are still waiting to be written. <span>♡</span></footer>
+
+  <script>
+    // Google Drive direct-image links can fail depending on sharing and browser restrictions.
+    // A local fallback can be placed beside index.html as "childhood-memory.jpg".
+    const photo = document.getElementById('childhoodPhoto');
+    photo.addEventListener('error', () => {
+      if (!photo.dataset.fallbackTried) {
+        photo.dataset.fallbackTried = 'true';
+        photo.src = './childhood-memory.jpg';
+      } else {
+        photo.alt = 'The childhood photograph could not be loaded. Add childhood-memory.jpg beside index.html.';
+        photo.style.minHeight = '220px';
+        photo.style.objectFit = 'contain';
+      }
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const yesBtn = document.getElementById('yesBtn');
+    const timeBtn = document.getElementById('timeBtn');
+    const yesResponse = document.getElementById('yesResponse');
+    const timeResponse = document.getElementById('timeResponse');
+
+    function showResponse(response) {
+      yesResponse.style.display = response === yesResponse ? 'block' : 'none';
+      timeResponse.style.display = response === timeResponse ? 'block' : 'none';
+      response.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    yesBtn.addEventListener('click', () => {
+      showResponse(yesResponse);
+      for (let i = 0; i < 24; i++) {
+        setTimeout(() => {
+          const petal = document.createElement('span');
+          petal.className = 'petal';
+          petal.textContent = Math.random() > .5 ? '♡' : '✿';
+          petal.style.left = Math.random() * 100 + 'vw';
+          petal.style.fontSize = (12 + Math.random() * 15) + 'px';
+          petal.style.setProperty('--drift', (Math.random() * 180 - 90) + 'px');
+          petal.style.animationDuration = (4 + Math.random() * 3) + 's';
+          document.body.appendChild(petal);
+          setTimeout(() => petal.remove(), 7500);
+        }, i * 90);
+      }
+    });
+    timeBtn.addEventListener('click', () => showResponse(timeResponse));
+  </script>
+</body>
+</html>
